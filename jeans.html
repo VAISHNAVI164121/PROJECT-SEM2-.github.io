@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Men Jeans | Nykaa Fashion</title>
+    <link rel="stylesheet" href="jeans.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">NYKAA <span>Fashion</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="Makeup.HTML">Makeup</a>
+    </nav>
+    <div class="bag">
+    <a href="bag.html">🛍️ Bag (<span id="bag-count">0</span>)</a>
+</div>
+</header>
+
+<!-- Page Title -->
+<section class="page-title">
+    <h1>Men’s Jeans</h1>
+    <p>Everyday Denim for Every Style</p>
+</section>
+
+<!-- Main Layout -->
+<section class="main-container">
+
+    <!-- Products -->
+    <div class="products">
+
+        <div class="jean-card">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.G98q1CKol1M3J5A_LO9YGAHaKG?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+            <h3 class="product-name">Slim Fit Blue Jeans</h3>
+            <p class="product-price">1,799</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="jean-card">
+            <img src="https://imagescdn.peterengland.com/img/app/product/7/741443-8316433.jpg?auto=format&w=390" alt="">
+            <h3 class="product-name">Dark Wash Regular Jeans</h3>
+            <p class="product-price">1,999</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="jean-card">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.btLDthd53B0w4N1JOMwWVwHaL2?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+            <h3 class="product-name">Skinny Fit Denim</h3>
+            <p class="product-price">2,199</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="jean-card">
+            <img src="https://img.ltwebstatic.com/images3_pi/2023/12/11/e7/17022837277b914fc9b8b4c5ef02e859bd3dbca9ad_thumbnail_900x.webp" alt="">
+            <h3 class="product-name">Distressed Casual Jeans</h3>
+            <p class="product-price">2,499</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="jean-card">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.K2xGO-ta4vlUbMhsF9j30AHaJ2?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="">
+            <h3 class="product-name">Light Wash Relaxed Jeans</h3>
+            <p class="product-price">1,599</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="jean-card">
+            <img src="https://cdn.lookastic.com/black-jeans/classic-black-jeans-original-172662.jpg" alt="">
+            <h3 class="product-name">Classic Black Jeans</h3>
+            <p class="product-price">2,299</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Nykaa Fashion Clone | Men Jeans</p>
+</footer>
+<script>
+
+// Load existing bag items
+let bag = JSON.parse(localStorage.getItem("bagItems")) || [];
+
+const bagCount = document.getElementById("bag-count");
+
+// Update bag count
+function updateBagCount() {
+    bagCount.textContent = bag.length;
+}
+
+updateBagCount();
+// Add to Bag buttons
+const buttons = document.querySelectorAll(".add-to-bag");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        const products = this.parentElement;
+
+        const product = {
+            name: products.querySelector(".product-name").innerText,
+            price: products.querySelector(".product-price").innerText,
+            image: products.querySelector("img").src
+        };
+
+        bag.push(product);
+        localStorage.setItem("bagItems", JSON.stringify(bag));
+
+        updateBagCount();
+
+        alert("Item added to bag!");
+    });
+
+});
+
+</script>
+
+</body>
+</html>
