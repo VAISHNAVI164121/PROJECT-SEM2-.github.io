@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Makeup | Nykaa Fashion</title>
+    <link rel="stylesheet" href="makeup.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">NYKAA <span>Fashion</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="makeup.html">Makeup</a>
+    </nav>
+    <div class="bag">
+    <a href="bag.html">🛍️ Bag (<span id="bag-count">0</span>)</a>
+</div>
+</header>
+
+<!-- Banner -->
+<section class="banner">
+    <h1>Makeup Essentials</h1>
+    <p>Glow Up With Top Beauty Brands</p>
+</section>
+
+<!-- Main Content -->
+<section class="main-container">
+
+    <!-- Products -->
+    <div class="products">
+
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/61AI-kNvgkL._SL1000_.jpg" alt="">
+            <h3 class="product-name">Matte Lipstick</h3>
+            <p class="product-price">1,099</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://png.pngtree.com/png-clipart/20230425/original/pngtree-liquid-foundation-makeup-beauty-splash-png-image_9099958.png" alt="">
+            <h3 class="product-name">Liquid Foundation</h3>
+            <p class="product-price">1,299</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://m.media-amazon.com/images/I/71JH4CQrOyL._AC_SL1500_.jpg" alt="">
+            <h3 class="product-name">Eyeshadow Palette</h3>
+            <p class="product-price">1,799</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://img.freepik.com/premium-photo/compact-powder_981061-1473.jpg" alt="">
+            <h3 class="product-name">Compact Powder</h3>
+            <p class="product-price">499</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://i5.walmartimages.com/asr/1bd4a925-f908-47bf-9827-5dd05a70d962.4fb8bc415347439e180e1c7b276eacf4.jpeg" alt="">
+            <h3 class="product-name">Blush & Highlighter</h3>
+            <p class="product-price">1,199</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://www.stylecraze.com/wp-content/uploads/2021/06/7-Best-Waterproof-Mascaras-For-Swimming--2021-Update-1_1200px.jpg.webp" alt="">
+            <h3 class="product-name">Waterproof Mascara</h3>
+            <p class="product-price">699</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Nykaa Fashion Clone | Makeup Section</p>
+</footer>
+<script>
+
+// Load existing bag items
+let bag = JSON.parse(localStorage.getItem("bagItems")) || [];
+
+const bagCount = document.getElementById("bag-count");
+
+// Update bag count
+function updateBagCount() {
+    bagCount.textContent = bag.length;
+}
+
+updateBagCount();
+// Add to Bag buttons
+const buttons = document.querySelectorAll(".add-to-bag");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        const products = this.parentElement;
+
+        const product = {
+            name: products.querySelector(".product-name").innerText,
+            price: products.querySelector(".product-price").innerText,
+            image: products.querySelector("img").src
+        };
+
+        bag.push(product);
+        localStorage.setItem("bagItems", JSON.stringify(bag));
+
+        updateBagCount();
+
+        alert("Item added to bag!");
+    });
+
+});
+
+</script>
+
+</body>
+</html>

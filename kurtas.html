@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Women Kurtas | Nykaa Fashion</title>
+    <link rel="stylesheet" href="kurtas.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">NYKAA <span>Fashion</span></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="women.html">Women</a>
+        <a href="men.html">Men</a>
+        <a href="Makeup.HTML">Makeup</a>
+    </nav>
+    <div class="bag">
+    <a href="bag.html">🛍️ Bag (<span id="bag-count">0</span>)</a>
+</div>
+</header>
+
+<!-- Page Title -->
+<section class="page-title">
+    <h1>Women Kurtas</h1>
+    <p>Elegant Ethnic & Everyday Kurtas</p>
+</section>
+
+<!-- Main Container -->
+<section class="main-container">
+<div class="products">
+        
+        <div class="kurta-card" data-price="high">
+            <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/8/a/8a48962HCSKWI23018_2.jpg?tr=w-512">
+            <h3 class="product-name">Kasmira Aari <br>Woollen Short Kurta</h3>
+            <p class="product-price">2,499</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="kurta-card" data-price="high">
+            <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/4/4/449f1adJKBW532_3.jpg?rnd=20200526195200&tr=w-256" alt="">
+            <h3 class="product-name">Beach Wear Green Kaftan</h3>
+            <p class="product-price">3,199</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="kurta-card" data-price="low">
+            <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/b/f/bfeb97dRSVKUR1964VARDUP2173_2.jpg?rnd=20200526195200&tr=w-256" alt="">
+            <h3 class="product-name">Green Embroidered Yoke Anarkali</h3>
+            <p class="product-price">1,299</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="kurta-card" data-price="mid">
+            <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/b/a/ba41865JAC24TU01648_1.jpg?rnd=20200526195200&tr=w-256" alt="">
+            <h3 class="product-name">Floral Printed A-Line Kurti</h3>
+            <p class="product-price">1,999</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="kurta-card" data-price="high">
+            <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/3/5/35c8d3bWK00022_2.jpg?rnd=20200526195200&tr=w-256" alt="">
+            <h3 class="product-name">White Pure Cotton Printed Kurta</h3>
+            <p class="product-price">2,199</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+        <div class="kurta-card" data-price="mid">
+            <img src="https://adn-static1.nykaa.com/nykdesignstudio-images/pub/media/catalog/product/c/b/cb51f9e2839-1321-12_6.jpg?rnd=20200526195200&tr=w-256" alt="">
+            <h3 class="product-name">Floral Printed Pure Cotton Short Kurti</h3>
+            <p class="product-price">1,799</p>
+            <button class="add-to-bag">Add to Bag</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p> &copy; 2025 Nykaa Fashion Clone | Kurtas Category</p>
+</footer>
+<script>
+
+// Load existing bag items
+let bag = JSON.parse(localStorage.getItem("bagItems")) || [];
+
+const bagCount = document.getElementById("bag-count");
+
+// Update bag count
+function updateBagCount() {
+    bagCount.textContent = bag.length;
+}
+
+updateBagCount();
+// Add to Bag buttons
+const buttons = document.querySelectorAll(".add-to-bag");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", function() {
+
+        const products = this.parentElement;
+
+        const product = {
+            name: products.querySelector(".product-name").innerText,
+            price: products.querySelector(".product-price").innerText,
+            image: products.querySelector("img").src
+        };
+
+        bag.push(product);
+        localStorage.setItem("bagItems", JSON.stringify(bag));
+
+        updateBagCount();
+
+        alert("Item added to bag!");
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+    
+    
